@@ -13,7 +13,7 @@ The following settings are managed with it:
 - Import custom certificates (PKI)
 - NTP Client (chronyd)
 - DNS Servers settings
-- Manage the /etc/hosts entries for the local host with the entries from the DNS server
+    - Manage the /etc/hosts entries for the local host with the entries from the DNS server
 - Manage other Core Services, for example Postfix etc.
 - Install Monitoring, Performance or CMDB/Dokumentations Tools (for Example Check_mk and LPAR2RRD)
 
