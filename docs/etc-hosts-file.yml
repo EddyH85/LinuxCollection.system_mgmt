@@ -1,0 +1,26 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: true
+  tasks:
+    - debug:
+        msg: "{{hostvars[inventory_hostname]['ansible_all_ipv4_addresses'] }}"
+    - name: Validate DNS record
+      debug:
+        msg: "Lookup for {{item}} is {{ lookup('dig', item + '/PTR').rstrip('.') }}"
+      vars:
+        dns_response: "lookup('dig', item + '/PTR').rstrip('.')"
+      failed_when: dns_response == "NXDOMAIN"
+      loop: "{{ hostvars[inventory_hostname]['ansible_all_ipv4_addresses'] }}"
+    - name: /etc/hosts
+      block:
+        - name: /etc/hosts | Set not existing entries
+          lineinfile:
+            backup: no
+            state: present
+            dest: /etc/hosts
+            regexp: '^#?\s*{{ item }}\s'
+            line: "{{item}}\t{{lookup('dig', item + '/PTR').rstrip('.')}} {{lookup('dig', item + '/PTR').split('.')[0]}}"
+          loop: "{{hostvars[inventory_hostname]['ansible_all_ipv4_addresses'] }}"
+          when: lookup('dig', item + '/PTR').rstrip('.') != "NXDOMAIN"
+
