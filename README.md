@@ -10,7 +10,7 @@ The following settings are managed with it:
 - local Users, Pre-Shared-keys and entries in to sudoers
 - Set Plattform specific settings and install latest Hypervisor Tools (vSphere, PowerVM, Cloud, Bare-Metal etc.)
     - for Example: I/O Scheduler, Kernel oder mutipath Settings
-- Import custom certificates (PKI)
+- Manage SSL Certificates (PKI)
 - NTP Client (chronyd)
 - DNS Servers settings
 - Manage the /etc/hosts entries for the local host with the entries from the DNS server
