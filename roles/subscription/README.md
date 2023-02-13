@@ -1,4 +1,4 @@
-ansible-role-deploy4sva-subscription-mgmt
+Subscription
 =========
 
 This Roles Manage the Subscription on SLES und RHEL distrobutions.
