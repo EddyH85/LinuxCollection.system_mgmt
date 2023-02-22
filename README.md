@@ -11,7 +11,7 @@ The following settings are managed with it:
 - Set Plattform specific settings and install latest Hypervisor Tools (vSphere, PowerVM, Cloud, Bare-Metal etc.)
     - for Example: I/O Scheduler, Kernel oder mutipath Settings
 - Manage SSL Certificates (PKI)
-- NTP Client (chronyd)
+- NTP Client
 - DNS Servers settings
     - Manage the /etc/hosts entries for the local host with the entries from the DNS server
 - Manage other Core Services, for example Postfix etc.
